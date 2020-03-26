@@ -17,10 +17,9 @@ import com.google.gson.reflect.TypeToken;
 
 @Service
 public class HttpConnectionImpl implements coronavirusServices {
-
     @Override
     public List<Pais> getAllCases() throws UnirestException {
-        Gson gson = new GsonBuilder().create();
+        Gson gson = new Gson();
         List<Pais> resp = null;
         HttpResponse<JsonNode> response = null;
         try {
@@ -33,8 +32,29 @@ public class HttpConnectionImpl implements coronavirusServices {
             Logger.getLogger(HttpConnectionImpl.class.getName()).log(Level.SEVERE, null, ex);
 
         }
+        gson = new GsonBuilder().create();
         JSONArray statics = response.getBody().getObject().getJSONObject("data").getJSONArray("covid19Stats");
         resp = gson.fromJson(statics.toString(),new TypeToken<List<Pais>>(){}.getType());
+        String pais=null;
+        List<Pais> paises =null;
+        Pais p = null;
+        int deaths=0;
+        int confirm=0;
+        int recovered=0;
+        for(Pais pa:resp){
+            if(pais==null){
+                pais=pa.getCountry();
+                p=new Pais();
+                p.setCountry(pais);
+            }
+            if(pais.equals(pa.getCountry())){
+                deaths+=pa.getDeaths();
+                confirm+=pa.getConfirmed();
+                recovered+=pa.getRecovered();
+            }
+
+        }
+    
         return resp;
     }
 

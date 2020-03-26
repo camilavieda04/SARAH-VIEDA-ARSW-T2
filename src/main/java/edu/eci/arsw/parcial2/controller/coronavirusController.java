@@ -1,5 +1,7 @@
 package edu.eci.arsw.parcial2.controller;
+
 import edu.eci.arsw.parcial2.service.impl.coronavirusServicesImpl;
+import edu.eci.arsw.parcial2.model.Pais;
 import edu.eci.arsw.parcial2.service.coronavirusServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,11 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.List;
 @RestController
 @RequestMapping(value="/covid19")
 public class coronavirusController {
     @Autowired 
-    coronavirusServicesImpl cs = null;
+    coronavirusServicesImpl cs;
     /**
      * Retorna una lista de todos los casos de coronavirus
      * @return ResponseEntity con el codigo http
@@ -23,8 +26,10 @@ public class coronavirusController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> getAllCases(){
+        List<Pais> dataTodo= null;
         try{
-            return new ResponseEntity<>(cs.getAllCases(),HttpStatus.ACCEPTED);
+            dataTodo= cs.getAllCases();
+            return new ResponseEntity<>(dataTodo,HttpStatus.ACCEPTED);
         }catch(Exception ex){
             Logger.getLogger(coronavirusController.class.getName()).log(Level.SEVERE,null,ex);
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
@@ -40,8 +45,10 @@ public class coronavirusController {
 
     @RequestMapping(path="/{pais}",method = RequestMethod.GET)
     public ResponseEntity<?> getPais(@PathVariable("pais") String pais){
+        List<Pais> dataPais= null;
         try{
-            return new ResponseEntity<>(cs.getPais(pais),HttpStatus.ACCEPTED);
+            dataPais= cs.getPais(pais);
+            return new ResponseEntity<>(dataPais,HttpStatus.ACCEPTED);
 
         }catch(Exception ex){
             Logger.getLogger(coronavirusController.class.getName()).log(Level.SEVERE,null,ex);

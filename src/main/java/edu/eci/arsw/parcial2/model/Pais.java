@@ -4,55 +4,86 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pais {
-    private String name;
-    private int Numinfected;
-    private int Numdeaths;
-    private int Numcured;
-    private List<Coronavirus> infocovid19;
+    private String city;
+    private String province;
+    private String country;
+    private String lastUpdate;
+    private String keyId;
+    private int confirmed;
+    private int deaths;
+    private int recovered;
+    
     
 
-    public Pais(String name){
-        this.name=name;
-        this.Numinfected=0;
-        this.Numdeaths=0;
-        this.Numcured=0;
-        this.infocovid19=new ArrayList<Coronavirus>();
+    public Pais(){
+       
         
     }
 
-    public String getName() {
-        return name;
+    public String getCity() {
+        return city;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public int getNuminfected() {
-        return Numinfected;
+    public String getProvince() {
+        return province;
     }
 
-    public void setNuminfected(int numinfected) {
-        Numinfected = numinfected;
+    public void setProvince(String province) {
+        this.province = province;
     }
 
-    public int getNumdeaths() {
-        return Numdeaths;
+    public String getCountry() {
+        return country;
     }
 
-    public void setNumdeaths(int numdeaths) {
-        Numdeaths = numdeaths;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public int getNumcured() {
-        return Numcured;
+    public String getLastUpdate() {
+        return lastUpdate;
     }
 
-    public void setNumcured(int numcured) {
-        Numcured = numcured;
+    public void setLastUpdate(String lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 
-    
+    public String getKeyId() {
+        return keyId;
+    }
+
+    public void setKeyId(String keyId) {
+        this.keyId = keyId;
+    }
+
+    public int getConfirmed() {
+        return confirmed;
+    }
+
+    public void setConfirmed(int confirmed) {
+        this.confirmed = confirmed;
+    }
+
+    public int getDeaths() {
+        return deaths;
+    }
+
+    public void setDeaths(int deaths) {
+        this.deaths = deaths;
+    }
+
+    public int getRecovered() {
+        return recovered;
+    }
+
+    public void setRecovered(int recovered) {
+        this.recovered = recovered;
+    }
+
 
 
 }
