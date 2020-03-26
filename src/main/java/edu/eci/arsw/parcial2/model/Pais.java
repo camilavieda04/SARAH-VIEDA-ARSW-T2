@@ -1,69 +1,29 @@
 package edu.eci.arsw.parcial2.model;
 
-import java.util.ArrayList;
-import java.util.List;
+public class Pais{
 
-public class Pais {
-    private String city;
-    private String province;
-    private String country;
-    private String lastUpdate;
-    private String keyId;
+    private String name;
     private int confirmed;
     private int deaths;
     private int recovered;
-    
-    public Pais(){
-       
-        
+
+    public Pais(String name,int confirmed,int deaths,int recovered){
+        this.name=name;
+        this.confirmed=confirmed;
+        this.deaths=deaths;
+        this.recovered=recovered;
     }
 
-    public String getCity() {
-        return city;
+    public String getName() {
+        return name;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getLastUpdate() {
-        return lastUpdate;
-    }
-
-    public void setLastUpdate(String lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
-
-    public String getKeyId() {
-        return keyId;
-    }
-
-    public void setKeyId(String keyId) {
-        this.keyId = keyId;
-    }
-
-    public int getConfirmed() {
-        return confirmed;
+    public void setName(String Name) {
+        name = Name;
     }
 
     public void setConfirmed(int confirmed) {
-        this.confirmed = confirmed;
+        confirmed = confirmed;
     }
 
     public int getDeaths() {
@@ -71,7 +31,7 @@ public class Pais {
     }
 
     public void setDeaths(int deaths) {
-        this.deaths = deaths;
+        deaths = deaths;
     }
 
     public int getRecovered() {
@@ -79,9 +39,11 @@ public class Pais {
     }
 
     public void setRecovered(int recovered) {
-        this.recovered = recovered;
+        recovered = recovered;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Corona Virus{" + "name=" + name + ", NumConfirm=" + confirmed + ", NumDeaths=" + deaths + ", NumRecovered=" + recovered +'}';
+    }
 }

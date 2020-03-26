@@ -1,4 +1,5 @@
 package edu.eci.arsw.parcial2.service.impl;
+
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
@@ -19,11 +20,12 @@ import edu.eci.arsw.parcial2.service.impl.*;
 public class coronavirusServiceImpl implements coronavirusServices {
     @Autowired
     HttpConnectionImpl hcs;
+    
     @Override
-    public List<Coronavirus> getAllCases() throws UnirestException {
-        List<Pais> paises = hcs.getAllCases();
+    public List<Pais> getAllCases() throws UnirestException {
+        List<Coronavirus> paises = hcs.getAllCases();
         HashMap<String, ArrayList<Integer>> countries = new HashMap<String, ArrayList<Integer>>();
-        for (Pais pa:paises){
+        for (Coronavirus pa:paises){
             if (countries.containsKey(pa.getCountry())){
                 ArrayList<Integer> aux = new ArrayList<Integer>();
                 ArrayList<Integer> temporal = countries.get(pa.getCountry());
@@ -38,9 +40,9 @@ public class coronavirusServiceImpl implements coronavirusServices {
             }
             
         }
-        List<Coronavirus> objetos = new ArrayList<Coronavirus>();
+        List<Pais> objetos = new ArrayList<Pais>();
         for (HashMap.Entry<String, ArrayList<Integer>> entry : countries.entrySet()) {
-            objetos.add(new Coronavirus(entry.getKey(),entry.getValue().get(0),entry.getValue().get(1),entry.getValue().get(2)));
+            objetos.add(new Pais(entry.getKey(),entry.getValue().get(0),entry.getValue().get(1),entry.getValue().get(2)));
         }
 
         return objetos;
@@ -48,9 +50,11 @@ public class coronavirusServiceImpl implements coronavirusServices {
     
 
     @Override
-    public List<Coronavirus> getPais(String pais) throws UnirestException {
+    public List<Pais> getCoronaPais(String pais) throws UnirestException {
         // TODO Auto-generated method stub
         return null;
     }
+
+    
 
 }

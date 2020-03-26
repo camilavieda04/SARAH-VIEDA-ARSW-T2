@@ -19,9 +19,9 @@ import com.google.gson.reflect.TypeToken;
 @Service
 public class HttpConnectionImpl implements conectionServices {
     @Override
-    public List<Pais> getAllCases() throws UnirestException {
+    public List<Coronavirus> getAllCases() throws UnirestException {
         Gson gson = new GsonBuilder().create();
-        List<Pais> resp = null;
+        List<Coronavirus> resp = null;
         HttpResponse<JsonNode> response = null;
         try {
             response = Unirest
@@ -34,14 +34,14 @@ public class HttpConnectionImpl implements conectionServices {
 
         }
         JSONArray statics = response.getBody().getObject().getJSONObject("data").getJSONArray("covid19Stats");
-        resp = gson.fromJson(statics.toString(),new TypeToken<List<Pais>>(){}.getType());
+        resp = gson.fromJson(statics.toString(),new TypeToken<List<Coronavirus>>(){}.getType());
         return resp;
     }
 
     @Override
-    public List<Pais> getPais(String pais) throws UnirestException {
+    public List<Coronavirus> getCoronaPais(String pais) throws UnirestException {
         Gson gson = new GsonBuilder().create();
-        List<Pais> resp = null;
+        List<Coronavirus> resp = null;
         HttpResponse<JsonNode> response = null;
         try {
             response = Unirest
@@ -54,7 +54,7 @@ public class HttpConnectionImpl implements conectionServices {
 
         }
         JSONArray statics = response.getBody().getObject().getJSONObject("data").getJSONArray("covid19Stats");
-        resp = gson.fromJson(statics.toString(), new TypeToken<List<Pais>>(){}.getType());
+        resp = gson.fromJson(statics.toString(), new TypeToken<List<Coronavirus>>(){}.getType());
         return resp;
     }
 

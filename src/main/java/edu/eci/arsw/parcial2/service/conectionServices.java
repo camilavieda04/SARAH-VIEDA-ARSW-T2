@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import java.util.List;
 
 public interface conectionServices {
-    List<Pais> getAllCases() throws UnirestException;   
-    List<Pais> getPais(String pais) throws UnirestException;
+    List<Coronavirus> getAllCases() throws UnirestException;   
+    List<Coronavirus> getCoronaPais(String pais) throws UnirestException;
 
 }

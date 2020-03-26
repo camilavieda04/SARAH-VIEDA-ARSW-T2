@@ -1,54 +1,88 @@
 package edu.eci.arsw.parcial2.model;
-/**
- * Estadisticas del Coronavirus
- */
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class Coronavirus{
-
-
-    private String name;
-    private int Numconfirm;
-    private int Numdeaths;
-    private int Numrecovered;
-
-    public Coronavirus(String name,int Numconfirm,int Numdeaths,int Numrecovered){
-        this.name=name;
-        this.Numconfirm=Numconfirm;
-        this.Numdeaths=Numdeaths;
-        this.Numrecovered=Numrecovered;
+public class Coronavirus {
+    private String city;
+    private String province;
+    private String country;
+    private String lastUpdate;
+    private String keyId;
+    private int confirmed;
+    private int deaths;
+    private int recovered;
+    
+    public Coronavirus(){
+        
     }
 
-    public String getName() {
-        return name;
+    public String getCity() {
+        return city;
     }
 
-    public void setName(String Name) {
-        name = Name;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public void setNumconfirm(int Numconfirm) {
-        Numconfirm = Numconfirm;
+    public String getProvince() {
+        return province;
     }
 
-    public int getNumdeaths() {
-        return Numdeaths;
+    public void setProvince(String province) {
+        this.province = province;
     }
 
-    public void setNumdeaths(int numdeaths) {
-        Numdeaths = numdeaths;
+    public String getCountry() {
+        return country;
     }
 
-    public int getNumrecovered() {
-        return Numrecovered;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public void setNumrecovered(int Numrecovered) {
-        Numrecovered = Numrecovered;
+    public String getLastUpdate() {
+        return lastUpdate;
     }
 
-    @Override
-    public String toString() {
-        return "Corona Virus{" + "name=" + name + ", NumConfirm=" + Numconfirm + ", NumDeaths=" + Numdeaths + ", NumRecovered=" + Numrecovered +'}';
+    public void setLastUpdate(String lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
+
+    public String getKeyId() {
+        return keyId;
+    }
+
+    public void setKeyId(String keyId) {
+        this.keyId = keyId;
+    }
+
+    public int getConfirmed() {
+        return confirmed;
+    }
+
+    public void setConfirmed(int confirmed) {
+        this.confirmed = confirmed;
+    }
+
+    public int getDeaths() {
+        return deaths;
+    }
+
+    public void setDeaths(int deaths) {
+        this.deaths = deaths;
+    }
+
+    public int getRecovered() {
+        return recovered;
+    }
+
+    public void setRecovered(int recovered) {
+        this.recovered = recovered;
+    }
+
+	
+
+
+
 }

@@ -41,9 +41,9 @@ public class coronavirusController {
 
 
     @RequestMapping(path="/{pais}",method = RequestMethod.GET)
-    public ResponseEntity<?> getPais(@PathVariable("pais") String pais){
+    public ResponseEntity<?> getCoronaPais(@PathVariable("pais") String pais){
         try{
-            return new ResponseEntity<>( cs.getPais(pais),HttpStatus.ACCEPTED);
+            return new ResponseEntity<>( cs.getCoronaPais(pais),HttpStatus.ACCEPTED);
 
         }catch(Exception ex){
             Logger.getLogger(coronavirusController.class.getName()).log(Level.SEVERE,null,ex);

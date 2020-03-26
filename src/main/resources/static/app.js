@@ -1,33 +1,43 @@
 var app =(function(){
 
-
-var generateTable=function(info){
-    $("#tablaPaises > tbody").empty();
+var  generateTable=function(info){
+    $("#casesCovidTable > tbody").empty();
     info.map(function(pais){
-        $("#tablaPaises > tbody").append(
+        alert("si entre")
+        $("#casesCovidTable > tbody").append(
             "<tr> <td>" +
+            "<form><button class='btn btn-primary' type='button' onclick='api.getPais(\"" +
             pais.name +
             "</td>" +
             "<td>" +
             pais.confirmed+
             "</td>" +
             "<td>" +
-            pais.death +
+            pais.deaths +
             "</td>" +
             "<td>" +
             pais.recovered +
             "</td></tr>"
         );
+    
     });
-}
-
-var getAll=function(){
-    apiClient.getAll(generateTable);
 };
 
-return{
-    getAll:getAll
+var getAllCases=function(){
+    apiClient.getAllCases(generateTable)
+    };
+
+
+var getCoronaPais=function(name){
+    apiClient.getCoronaPais(name).then(function(info){
+        generateTable(info);
+    })
 }
+
+return{
+    getAllCases:getAllCases,
+    getCoronaPais:getCoronaPais
+};
 
 
 })();
