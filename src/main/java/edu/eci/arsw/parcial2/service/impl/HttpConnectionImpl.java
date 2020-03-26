@@ -20,7 +20,7 @@ import com.google.gson.reflect.TypeToken;
 public class HttpConnectionImpl implements conectionServices {
     @Override
     public List<Pais> getAllCases() throws UnirestException {
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().create();
         List<Pais> resp = null;
         HttpResponse<JsonNode> response = null;
         try {
@@ -33,7 +33,6 @@ public class HttpConnectionImpl implements conectionServices {
             Logger.getLogger(HttpConnectionImpl.class.getName()).log(Level.SEVERE, null, ex);
 
         }
-        gson = new GsonBuilder().create();
         JSONArray statics = response.getBody().getObject().getJSONObject("data").getJSONArray("covid19Stats");
         resp = gson.fromJson(statics.toString(),new TypeToken<List<Pais>>(){}.getType());
         return resp;

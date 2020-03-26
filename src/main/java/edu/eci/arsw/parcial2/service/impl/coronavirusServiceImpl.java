@@ -18,7 +18,6 @@ import edu.eci.arsw.parcial2.service.impl.*;
 @Service
 public class coronavirusServiceImpl implements coronavirusServices {
     @Autowired
-    @Qualifier("HttpConnectionImpl")
     HttpConnectionImpl hcs;
 
     @Override
