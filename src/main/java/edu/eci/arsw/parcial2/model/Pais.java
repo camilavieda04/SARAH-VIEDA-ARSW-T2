@@ -18,8 +18,8 @@ public class Pais{
         return name;
     }
 
-    public void setName(String Name) {
-        name = Name;
+    public void setName(String name) {
+        name = name;
     }
 
     public void setConfirmed(int confirmed) {
