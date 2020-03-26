@@ -16,6 +16,11 @@ import java.util.logging.Logger;
 public class coronavirusController {
     @Autowired 
     coronavirusServicesImpl cs = null;
+    /**
+     * Retorna una lista de todos los casos de coronavirus
+     * @return ResponseEntity con el codigo http
+     */
+
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> getAllCases(){
         try{
@@ -26,7 +31,24 @@ public class coronavirusController {
         }
     }
 
+    /**
+     * Retorna el pais con sus casos de coronavirus
+     * @param pais nombre del país que se desea consultar
+     * @return ResponseEntity con el codigo http 
+     */
 
+
+    @RequestMapping(path="/{pais}",method = RequestMethod.GET)
+    public ResponseEntity<?> getPais(@PathVariable("pais") String pais){
+        try{
+            return new ResponseEntity<>(cs.getPais(pais),HttpStatus.ACCEPTED);
+
+        }catch(Exception ex){
+            Logger.getLogger(coronavirusController.class.getName()).log(Level.SEVERE,null,ex);
+            return new ResponseEntity<>(ex.getMessage(),HttpStatus.NOT_FOUND);
+        }
+
+    }
 }
 
 

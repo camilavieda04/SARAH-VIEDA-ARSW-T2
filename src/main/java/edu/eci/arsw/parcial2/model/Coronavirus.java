@@ -1,4 +1,7 @@
 package edu.eci.arsw.parcial2.model;
+/**
+ * Estadisticas del Coronavirus
+ */
 
 
 public class Coronavirus{
@@ -11,10 +14,19 @@ public class Coronavirus{
     private int Numdeaths;
     private int Numcured;
 
+    /**
+     * 
+     * @return city donde se esta haciendo la estadistica
+     */
+
     public String getCity() {
         return city;
     }
 
+    /**
+     * Cambia la ciudad donde se esta haciendo la estadistica
+     * @param city
+     */
     public void setCity(String city) {
         this.city = city;
     }
