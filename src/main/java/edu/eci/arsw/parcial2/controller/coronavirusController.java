@@ -1,6 +1,6 @@
 package edu.eci.arsw.parcial2.controller;
 
-import edu.eci.arsw.parcial2.service.impl.coronavirusServicesImpl;
+
 import edu.eci.arsw.parcial2.model.Pais;
 import edu.eci.arsw.parcial2.service.coronavirusServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import java.util.List;
 @RequestMapping(value="/covid19")
 public class coronavirusController {
     @Autowired 
-    coronavirusServicesImpl cs;
+    coronavirusServices cs;
     /**
      * Retorna una lista de todos los casos de coronavirus
      * @return ResponseEntity con el codigo http
