@@ -19,7 +19,6 @@ import edu.eci.arsw.parcial2.service.impl.*;
 public class coronavirusServiceImpl implements coronavirusServices {
     @Autowired
     HttpConnectionImpl hcs;
-
     @Override
     public List<Coronavirus> getAllCases() throws UnirestException {
         List<Pais> paises = hcs.getAllCases();

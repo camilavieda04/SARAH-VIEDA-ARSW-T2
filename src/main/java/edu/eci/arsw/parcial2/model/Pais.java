@@ -13,8 +13,6 @@ public class Pais {
     private int deaths;
     private int recovered;
     
-    
-
     public Pais(){
        
         
