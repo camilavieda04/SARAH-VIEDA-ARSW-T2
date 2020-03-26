@@ -33,9 +33,24 @@ var  generateTable=function(info){
 };
 
 var table=function(info){
+    document.getElementById("nombrePais").innerHTML=info.name;
+    $("#pais > tbody").empty();
+
+    $("#pais > tbody").append(
+        "<tr> <td> Num Deaths</td> <td>" +
+        info.deaths +
+        "</td></tr>" +
+        "<tr> <td> Num Confirmed</td> <td>" +
+        info.confirmed +
+        "</td></tr>"+
+    "<tr> <td> Num Recovered</td> <td>" +
+    info.recovered +
+    "</td></tr>"
+
+    );
     $("#casesCountry > tbody").empty();
     info.map(function(namepais){
-        $("#casesCountry>tbody").append(
+        $("#casesCountry > tbody").append(
             "<tr> <td>" +
             namepais.name+
             "</td>" +
