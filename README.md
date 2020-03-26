@@ -1,5 +1,17 @@
 # Escuela Colombiana de Ingeniería Julio Garavito - Arquitecturas de Software ARSW - Parcial Segundo Tercio
 
+## Instrucciones de ejecucion 
+
+En el directorio SARAH-VIEDA-ARSW-T2 ejectuar mvn spring-boot:run
+
+## Instrucciones de extensibilidad 
+- Para extender el proyecto se pueden incluir métodos en las interfaces que se realizaron. 
+- Es posible realizar otro .js con otro tipo de tecnología que utilice los métodos realizados en apiclient. 
+
+## URL HEROKU 
+
+https://parcial2-arsw-coronavirus.herokuapp.com/
+
 ## Preparación para el Parcial
 
 Con el objetivo de preparar el examen final del segundo tercio, por favor siga las siguientes instrucciones.
