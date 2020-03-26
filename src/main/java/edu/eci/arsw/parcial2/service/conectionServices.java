@@ -7,8 +7,8 @@ import edu.eci.arsw.parcial2.model.Pais;
 import org.json.JSONArray;
 import java.util.List;
 
-public interface coronavirusServices {
-    List<Coronavirus> getAllCases() throws UnirestException;   
-    List<Coronavirus> getPais(String pais) throws UnirestException;
+public interface conectionServices {
+    List<Pais> getAllCases() throws UnirestException;   
+    List<Pais> getPais(String pais) throws UnirestException;
 
 }

@@ -1,8 +1,7 @@
 package edu.eci.arsw.parcial2.controller;
 
-
 import edu.eci.arsw.parcial2.model.Pais;
-import edu.eci.arsw.parcial2.service.coronavirusServices;
+import edu.eci.arsw.parcial2.service.impl.coronavirusServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -18,7 +17,7 @@ import java.util.List;
 @RequestMapping(value="/covid19")
 public class coronavirusController {
     @Autowired 
-    coronavirusServices cs;
+    coronavirusServiceImpl cs;
     /**
      * Retorna una lista de todos los casos de coronavirus
      * @return ResponseEntity con el codigo http
@@ -26,10 +25,8 @@ public class coronavirusController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> getAllCases(){
-        List<Pais> dataTodo= null;
         try{
-            dataTodo= cs.getAllCases();
-            return new ResponseEntity<>(dataTodo,HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(cs.getAllCases(),HttpStatus.ACCEPTED);
         }catch(Exception ex){
             Logger.getLogger(coronavirusController.class.getName()).log(Level.SEVERE,null,ex);
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
@@ -45,10 +42,8 @@ public class coronavirusController {
 
     @RequestMapping(path="/{pais}",method = RequestMethod.GET)
     public ResponseEntity<?> getPais(@PathVariable("pais") String pais){
-        List<Pais> dataPais= null;
         try{
-            dataPais= cs.getPais(pais);
-            return new ResponseEntity<>(dataPais,HttpStatus.ACCEPTED);
+            return new ResponseEntity<>( cs.getPais(pais),HttpStatus.ACCEPTED);
 
         }catch(Exception ex){
             Logger.getLogger(coronavirusController.class.getName()).log(Level.SEVERE,null,ex);

@@ -7,52 +7,28 @@ package edu.eci.arsw.parcial2.model;
 public class Coronavirus{
 
 
-    private String city;
-    private String province;
-    private String country;
-    private int Numinfected;
+    private String name;
+    private int Numconfirm;
     private int Numdeaths;
-    private int Numcured;
+    private int Numrecovered;
 
-    /**
-     * 
-     * @return city donde se esta haciendo la estadistica
-     */
-
-    public String getCity() {
-        return city;
+    public Coronavirus(String name,int Numconfirm,int Numdeaths,int Numrecovered){
+        this.name=name;
+        this.Numconfirm=Numconfirm;
+        this.Numdeaths=Numdeaths;
+        this.Numrecovered=Numrecovered;
     }
 
-    /**
-     * Cambia la ciudad donde se esta haciendo la estadistica
-     * @param city
-     */
-    public void setCity(String city) {
-        this.city = city;
+    public String getName() {
+        return name;
     }
 
-    public String getProvince() {
-        return province;
+    public void setName(String Name) {
+        name = Name;
     }
 
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public int getNuminfected() {
-        return Numinfected;
-    }
-
-    public void setNuminfected(int numinfected) {
-        Numinfected = numinfected;
+    public void setNumconfirm(int Numconfirm) {
+        Numconfirm = Numconfirm;
     }
 
     public int getNumdeaths() {
@@ -63,16 +39,16 @@ public class Coronavirus{
         Numdeaths = numdeaths;
     }
 
-    public int getNumcured() {
-        return Numcured;
+    public int getNumrecovered() {
+        return Numrecovered;
     }
 
-    public void setNumcured(int numcured) {
-        Numcured = numcured;
+    public void setNumrecovered(int Numrecovered) {
+        Numrecovered = Numrecovered;
     }
 
     @Override
     public String toString() {
-        return "Corona Virus{" + "city=" + city + ", province=" + province + ", country=" + country + ", NumInfected=" + Numinfected + ", NumDeaths=" + Numdeaths + ", NumCured=" + Numcured +'}';
+        return "Corona Virus{" + "name=" + name + ", NumConfirm=" + Numconfirm + ", NumDeaths=" + Numdeaths + ", NumRecovered=" + Numrecovered +'}';
     }
 }

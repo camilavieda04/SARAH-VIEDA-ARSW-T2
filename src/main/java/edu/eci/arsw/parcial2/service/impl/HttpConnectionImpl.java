@@ -1,7 +1,8 @@
 package edu.eci.arsw.parcial2.service.impl;
 
+import edu.eci.arsw.parcial2.model.Coronavirus;
 import edu.eci.arsw.parcial2.model.Pais;
-import edu.eci.arsw.parcial2.service.coronavirusServices;
+import edu.eci.arsw.parcial2.service.conectionServices;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
@@ -16,7 +17,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 @Service
-public class HttpConnectionImpl implements coronavirusServices {
+public class HttpConnectionImpl implements conectionServices {
     @Override
     public List<Pais> getAllCases() throws UnirestException {
         Gson gson = new Gson();
@@ -35,26 +36,6 @@ public class HttpConnectionImpl implements coronavirusServices {
         gson = new GsonBuilder().create();
         JSONArray statics = response.getBody().getObject().getJSONObject("data").getJSONArray("covid19Stats");
         resp = gson.fromJson(statics.toString(),new TypeToken<List<Pais>>(){}.getType());
-        String pais=null;
-        List<Pais> paises =null;
-        Pais p = null;
-        int deaths=0;
-        int confirm=0;
-        int recovered=0;
-        for(Pais pa:resp){
-            if(pais==null){
-                pais=pa.getCountry();
-                p=new Pais();
-                p.setCountry(pais);
-            }
-            if(pais.equals(pa.getCountry())){
-                deaths+=pa.getDeaths();
-                confirm+=pa.getConfirmed();
-                recovered+=pa.getRecovered();
-            }
-
-        }
-    
         return resp;
     }
 
