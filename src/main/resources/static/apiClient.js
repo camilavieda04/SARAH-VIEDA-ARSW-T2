@@ -3,7 +3,7 @@ var apiClient = (function () {
         getAllCases:function () {
             var getPromise=$.ajax({
                 dataType: "json",
-                url:"/covid19/",
+                url:"/covid19",
             });
             return getPromise;
         },getCoronaPais:function (name) {

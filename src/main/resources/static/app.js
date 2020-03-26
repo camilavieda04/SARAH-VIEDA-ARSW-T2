@@ -3,10 +3,9 @@ var app =(function(){
 var  generateTable=function(info){
     $("#casesCovidTable > tbody").empty();
     info.map(function(pais){
-        alert("si entre")
         $("#casesCovidTable > tbody").append(
             "<tr> <td>" +
-            "<form><button class='btn btn-primary' type='button' onclick='api.getPais(\"" +
+            "<form><button class='btn btn-primary' type='button' onclick='app.getCoronaPais(\"" +
             pais.name +
             "</td>" +
             "<td>" +
@@ -24,12 +23,14 @@ var  generateTable=function(info){
 };
 
 var getAllCases=function(){
-    apiClient.getAllCases(generateTable)
-    };
+    apiClient.getAllCases().then(function(info){
+        generateTable(info);
+    });
+};
 
 
 var getCoronaPais=function(name){
-    apiClient.getCoronaPais(name).then(function(info){
+    apiClient.getCoronaPais(generateTable).then(function(info){
         generateTable(info);
     })
 }
