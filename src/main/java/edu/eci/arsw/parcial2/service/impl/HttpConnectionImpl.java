@@ -18,6 +18,11 @@ import com.google.gson.reflect.TypeToken;
 
 @Service("HttpConnectionImpl")
 public class HttpConnectionImpl implements conectionServices {
+    /**
+     * @return Una lista en formato JSON con los registros de coronavirus
+     * @throws UniresException si la peticion falla 
+     */
+
     @Override
     public List<Coronavirus> getAllCases() throws UnirestException {
         Gson gson = new GsonBuilder().create();
@@ -37,6 +42,12 @@ public class HttpConnectionImpl implements conectionServices {
         resp = gson.fromJson(statics.toString(),new TypeToken<List<Coronavirus>>(){}.getType());
         return resp;
     }
+
+    /**
+     * @param pais pais que se quiere estudiar 
+     * @return Una lista en formato JSON con los registros de coronavirus en un pais especifico 
+     * @throws UniresException si la peticion falla 
+     */
 
     @Override
     public List<Coronavirus> getCoronaPais(String pais) throws UnirestException {

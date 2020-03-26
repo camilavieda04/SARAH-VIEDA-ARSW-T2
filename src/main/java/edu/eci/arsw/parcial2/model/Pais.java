@@ -14,34 +14,66 @@ public class Pais{
         this.recovered=recovered;
     }
 
+    /**
+     * 
+     * @return el nombre del pais
+     */
+
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name del pais 
+     * @return nuevo pais a estudiar 
+     */
     public void setName(String name) {
         name = name;
     }
 
+    /**
+     * 
+     * @return el numero de confirmados 
+     */
     public int getConfirmed(){
         return confirmed;
     }
 
+    /**
+     * @param confirmed numero de casos confirmados 
+     * @return nuevo numero de casos confirmados
+     */
     public void setConfirmed(int confirmed) {
         confirmed = confirmed;
     }
 
+    /**
+     * 
+     * @return el numero de casos de muerte
+     */
+
     public int getDeaths() {
         return deaths;
     }
+    /**
+     * @param deaths numero de casos de muerte
+     * @return nuevo numero de casos de muerte
+     */
 
     public void setDeaths(int deaths) {
         deaths = deaths;
     }
-
+     /**
+     * 
+     * @return el numero de casos que se han recuperado
+     */
     public int getRecovered() {
         return recovered;
     }
-
+    /**
+     * @param recovered numero de casos que se han recuperado
+     * @return nuevo numero de casos recuperados
+     */
     public void setRecovered(int recovered) {
         recovered = recovered;
     }
