@@ -1,10 +1,14 @@
 package edu.eci.arsw.parcial2.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pais {
     private String name;
     private int Numinfected;
     private int Numdeaths;
     private int Numcured;
+    private List<Coronavirus> infocovid19;
     
 
     public Pais(String name){
@@ -12,6 +16,7 @@ public class Pais {
         this.Numinfected=0;
         this.Numdeaths=0;
         this.Numcured=0;
+        this.infocovid19=new ArrayList<Coronavirus>();
         
     }
 
@@ -46,4 +51,8 @@ public class Pais {
     public void setNumcured(int numcured) {
         Numcured = numcured;
     }
+
+    
+
+
 }
