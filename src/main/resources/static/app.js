@@ -5,21 +5,53 @@ var  generateTable=function(info){
     info.map(function(pais){
         $("#casesCovidTable > tbody").append(
             "<tr> <td>" +
-            "<form><button class='btn btn-primary' type='button' onclick='app.getCoronaPais(\"" +
             pais.name +
             "</td>" +
             "<td>" +
-            pais.confirmed+
+            pais.deaths+
             "</td>" +
             "<td>" +
-            pais.deaths +
+            pais.confirmed +
             "</td>" +
             "<td>" +
             pais.recovered +
-            "</td></tr>"
-        );
+            "</td>"+
+            "<td>"+
+            "<form><button class='btn btn-dark' type='button' onclick='app.getCoronaPais(\"" +
+        pais.pais+"\""+ ")' > Ver </button></form>"+
+            "</td> " +
+            "</tr>"
+            );
     
     });
+    $("button").click(function() {
+        $('html,body').animate({
+            scrollTop: $(".casesCountry").offset().top},
+            'slow');
+    });
+
+};
+
+var table=function(info){
+    $("#casesCountry > tbody").empty();
+    info.map(function(namepais){
+        $("#casesCountry>tbody").append(
+            "<tr> <td>" +
+            namepais.name+
+            "</td>" +
+            "<td>" +
+            namepais.deaths+
+            "</td>" +
+            "<td>" +
+            namepais.confirmed+
+            "</td>" +
+            "<td>" +
+            namepais.recovered+
+            "</td></tr>"
+        );
+
+    });
+
 };
 
 var getAllCases=function(){
@@ -30,9 +62,9 @@ var getAllCases=function(){
 
 
 var getCoronaPais=function(name){
-    apiClient.getCoronaPais(generateTable).then(function(info){
-        generateTable(info);
-    })
+    apiClient.getCoronaPais(name).then(function(info){
+        table(info);
+    });
 }
 
 return{

@@ -22,6 +22,10 @@ public class Pais{
         name = name;
     }
 
+    public int getConfirmed(){
+        return confirmed;
+    }
+
     public void setConfirmed(int confirmed) {
         confirmed = confirmed;
     }

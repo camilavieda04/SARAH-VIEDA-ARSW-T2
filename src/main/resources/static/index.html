@@ -29,27 +29,44 @@
         <h1 style="text-align: center">Coronavirus Statistics</h1>
         <br></br>
         <form>
-            <div class="container">
-                <div class="row justify-content-md-center">
-                    <div class="col-md-auto">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="covidFinder" aria-describedby="emailHelp"
-                                   placeholder="Country searching" style="width: 110%">
-                        </div>
-                    </div>
-                    <div class="col col-lg-2">
-                        <button type="button" class="btn btn-primary">
-                            Search
-                        </button>
-                    </div>
-                </div>
+            
                 <div class="row justify-content-md-center"> 
-                    <table id="casesCovidTable" class="table table-dark">
+                    <table id="casesCovidTable" class="table">
                         <thead>
                         <tr>
                             <th>Country</th>
                             <th>Num deaths</th>
-                            <th>Num infected</th>
+                            <th>Num confirm</th>
+                            <th>Num cured</th>
+                            <th>Province</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-auto">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="covidFinder" aria-describedby="emailHelp"
+                                       placeholder="Country searching" style="width: 110%">
+                            </div>
+                        </div>
+                        <div class="col col-lg-2">
+                            <button type="button" class="btn btn-primary">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-md-center"> 
+                    <table id="casesCountry" class="table">
+                        <thead>
+                        <tr>
+                            <th>Region</th>
+                            <th>Num deaths</th>
+                            <th>Num confirm</th>
                             <th>Num cured</th>
                         </tr>
                         </thead>
@@ -57,8 +74,7 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-    
+
         </form>
     </div>
 

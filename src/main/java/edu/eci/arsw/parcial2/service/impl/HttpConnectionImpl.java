@@ -16,7 +16,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-@Service
+@Service("HttpConnectionImpl")
 public class HttpConnectionImpl implements conectionServices {
     @Override
     public List<Coronavirus> getAllCases() throws UnirestException {

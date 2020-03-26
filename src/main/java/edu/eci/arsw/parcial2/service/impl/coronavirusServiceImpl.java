@@ -16,9 +16,10 @@ import edu.eci.arsw.parcial2.model.Pais;
 import edu.eci.arsw.parcial2.service.coronavirusServices;
 import edu.eci.arsw.parcial2.service.impl.*;
 
-@Service
+@Service("coronavirusServiceImpl")
 public class coronavirusServiceImpl implements coronavirusServices {
     @Autowired
+    @Qualifier ("HttpConnectionImpl")
     HttpConnectionImpl hcs;
     
     @Override
@@ -45,14 +46,37 @@ public class coronavirusServiceImpl implements coronavirusServices {
             objetos.add(new Pais(entry.getKey(),entry.getValue().get(0),entry.getValue().get(1),entry.getValue().get(2)));
         }
 
+
         return objetos;
     }
     
 
     @Override
     public List<Pais> getCoronaPais(String pais) throws UnirestException {
-        // TODO Auto-generated method stub
-        return null;
+        List<Coronavirus> paises = hcs.getCoronaPais(pais);
+        HashMap<String, ArrayList<Integer>> countries = new HashMap<String, ArrayList<Integer>>();
+        for (Coronavirus pa:paises){
+            if (countries.containsKey(pa.getCountry())){
+                ArrayList<Integer> aux = new ArrayList<Integer>();
+                ArrayList<Integer> temporal = countries.get(pa.getProvince());
+                countries.remove(pa.getProvince());
+                aux.add(temporal.get(0)+pa.getDeaths());aux.add(temporal.get(1)+pa.getConfirmed());aux.add(temporal.get(2)+pa.getRecovered());
+                countries.put(pa.getProvince(),aux); 
+            }
+            else{
+                ArrayList<Integer> temporal = new ArrayList<Integer>();
+                temporal.add(pa.getDeaths());temporal.add(pa.getConfirmed());temporal.add(pa.getRecovered());
+                countries.put(pa.getProvince(),temporal);
+            }
+            
+        }
+        List<Pais> objetos = new ArrayList<Pais>();
+        for (HashMap.Entry<String, ArrayList<Integer>> entry : countries.entrySet()) {
+            objetos.add(new Pais(entry.getKey(),entry.getValue().get(0),entry.getValue().get(1),entry.getValue().get(2)));
+        }
+
+
+        return objetos;
     }
 
     
